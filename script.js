@@ -1,0 +1,28 @@
+// MANTRA 2026 Sample JavaScript
+const menuBtn=document.getElementById("menuBtn");const navLinks=document.getElementById("navLinks");if(menuBtn&&navLinks){menuBtn.addEventListener("click",function(){navLinks.classList.toggle("show")})}const bookingForm=document.getElementById("bookingForm");if(bookingForm){bookingForm.addEventListener("submit",function(event){event.preventDefault();const name=document.getElementById("name").value.trim();const email=document.getElementById("email").value.trim();const phone=document.getElementById("phone").value.trim();const destination=document.getElementById("destination").value;const formMessage=document.getElementById("formMessage");if(name===""||email===""||phone===""||destination===""){formMessage.style.color="red";formMessage.textContent="Please fill all required fields.";return}if(!email.includes("@")||!email.includes(".")){formMessage.style.color="red";formMessage.textContent="Please enter a valid email address.";return}if(phone.length!==10||isNaN(phone)){formMessage.style.color="red";formMessage.textContent="Please enter a valid 10-digit mobile number.";return}formMessage.style.color="green";formMessage.textContent="Thank you! Your booking enquiry has been submitted.";bookingForm.reset()})}function calculateCost(){const packageSelect=document.getElementById("packageSelect");const peopleCount=document.getElementById("peopleCount");const costResult=document.getElementById("costResult");if(!packageSelect||!peopleCount||!costResult)return;const price=Number(packageSelect.value);const people=Number(peopleCount.value);if(people<=0){costResult.style.color="red";costResult.textContent="Please enter a valid number of people.";return}const total=price*people;costResult.style.color="green";costResult.textContent="Estimated Total Cost: ₹"+total.toLocaleString("en-IN")}function filterGallery(category){const items=document.querySelectorAll(".gallery-item");items.forEach(function(item){if(category==="all"||item.classList.contains(category)){item.style.display="block"}else{item.style.display="none"}})}
+
+const validateForm=()=>{
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let phone=document.getElementById("phone").value;
+    let textarea=document.getElementById("textarea").value;
+    if(name==""){
+        alert("Enter the name");
+        return false;
+    }
+    if(email==""){
+        alert("Enter the Email");
+        return false
+    }
+    if(phone==""){
+        alert("Please enter your phone Numeber");
+        return false
+    }
+    document.getElementById("name").value=""
+    document.getElementById("email").value=""
+    document.getElementById("phone").value=""
+    document.getElementById("textarea").value=""
+    alert("Registeration is Successfull!")
+
+    return false;
+}
