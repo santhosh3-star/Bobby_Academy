@@ -18,6 +18,10 @@ const validateForm=()=>{
         alert("Please enter your phone Numeber");
         return false
     }
+    if (textarea == ""){
+        alert("Please enter Your message");
+        return false;
+    }
     document.getElementById("name").value=""
     document.getElementById("email").value=""
     document.getElementById("phone").value=""
